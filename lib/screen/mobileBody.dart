@@ -22,7 +22,9 @@ class MobilePage extends StatelessWidget {
           ],
         ),
       ),
-      body: Container(child: Center(child: Text('afd'))),
+      body: const Center(
+          child: Text(
+              'CheckOut Destop Version \n Mobile version in under maintenance ')),
     );
   }
 }

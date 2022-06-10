@@ -1,5 +1,5 @@
+// ignore: file_names
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/screen%20components/bulletList.dart';
@@ -7,6 +7,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../contants.dart';
+import '../screen components/animated_skill_diaplay.dart';
 import '../screen components/cardTile.dart';
 import '../screen components/infoTile.dart';
 import '../screen components/projectDisplay_tile.dart';
@@ -18,14 +19,27 @@ class DesktopBody extends StatefulWidget {
   State<DesktopBody> createState() => _DesktopBodyState();
 }
 
-class _DesktopBodyState extends State<DesktopBody> {
-  int activeIndex = 0;
+class _DesktopBodyState extends State<DesktopBody>
+    with TickerProviderStateMixin {
+  // skill back wheel spinner
+  late final AnimationController _controller =
+      AnimationController(vsync: this, duration: const Duration(seconds: 2))
+        ..repeat();
 
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+// carousel active index
+  int activeIndex = 0;
+  // carousel controller
   final sliderController = CarouselController();
 
+// url launcher paths
   final Uri fbLaunch =
       Uri(scheme: 'https', host: 'www.facebook.com', path: '/sudip.raaz21');
-
   final Uri instaLaunch =
       Uri(scheme: 'https', host: 'www.instagram.com', path: '/sudeep_raaz/');
   final Uri linkedin = Uri(
@@ -33,6 +47,7 @@ class _DesktopBodyState extends State<DesktopBody> {
       host: 'www.linkedin.com',
       path: '/in/sudip-raj-adhikari-3276ba1a7/');
 
+// animate to this location
   var home_page = GlobalKey();
   var service_page = GlobalKey();
   var skill_page = GlobalKey();
@@ -42,15 +57,16 @@ class _DesktopBodyState extends State<DesktopBody> {
   @override
   Widget build(BuildContext context) {
     final currentWidth = MediaQuery.of(context).size.width;
-    final currentHeight = MediaQuery.of(context).size.height;
+    // final currentHeight = MediaQuery.of(context).size.height;
 
-    Color sameColor = (Color.fromARGB(98, 255, 255, 255));
+    Color sameColor = (const Color.fromARGB(98, 255, 255, 255));
 
     // scroll to the spec
     Future scrollToItem(page) async {
       final context = page.currentContext!;
 
-      await Scrollable.ensureVisible(context, duration: Duration(seconds: 1));
+      await Scrollable.ensureVisible(context,
+          duration: const Duration(seconds: 1));
     }
 
     return Scaffold(
@@ -62,45 +78,64 @@ class _DesktopBodyState extends State<DesktopBody> {
               child: Padding(
                 padding: EdgeInsets.only(left: 30),
                 child: Text(
-                  'Sudip\'s portfolio Desktop',
+                  'Sudip\'s portfolio',
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
                 ),
               ),
+            ),
+            const SizedBox(
+              width: 150,
             ),
             Expanded(
                 child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                ElevatedButton(
-                    // style:
-                    child: Text("Home"),
+                TextButton(
+                    child: const Text(
+                      "Home",
+                      style: TextStyle(color: Colors.white),
+                      textScaleFactor: 1.3,
+                    ),
                     onPressed: () {
                       scrollToItem(home_page);
                     }),
-                ElevatedButton(
-                    child: Text("Services"),
+                TextButton(
+                    child: const Text(
+                      "Services",
+                      style: TextStyle(color: Colors.white),
+                      textScaleFactor: 1.3,
+                    ),
                     onPressed: () {
                       scrollToItem(service_page);
                     }),
-                ElevatedButton(
-                    child: Text(
+                TextButton(
+                    child: const Text(
                       "Skills",
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(color: Colors.white),
+                      textScaleFactor: 1.3,
                     ),
                     onPressed: () {
                       scrollToItem(skill_page);
                     }),
-                ElevatedButton(
-                    child: Text("Projects"),
+                TextButton(
+                    child: const Text(
+                      "Projects",
+                      style: TextStyle(color: Colors.white),
+                      textScaleFactor: 1.3,
+                    ),
                     onPressed: () {
                       scrollToItem(project_page);
                     }),
-                ElevatedButton(
-                    child: Text("Contact"),
+                TextButton(
+                    child: const Text(
+                      "Contact",
+                      style: TextStyle(color: Colors.white),
+                      textScaleFactor: 1.3,
+                    ),
                     onPressed: () {
                       scrollToItem(contact_page);
                     }),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 )
               ],
@@ -118,7 +153,7 @@ class _DesktopBodyState extends State<DesktopBody> {
                   Expanded(
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.only(right: 150),
+                        padding: const EdgeInsets.only(right: 150, left: 100),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: const [
@@ -144,10 +179,10 @@ class _DesktopBodyState extends State<DesktopBody> {
                       child: Container(
                     height: 745,
                     // width: 500,
-                    decoration: BoxDecoration(
-                        color: Colors.blueAccent,
+                    decoration: const BoxDecoration(
+                        color: Color.fromRGBO(68, 138, 255, 1),
                         image: DecorationImage(
-                            image: AssetImage('myself.png'),
+                            image: AssetImage('assets/myself.png'),
                             fit: BoxFit.fitHeight)),
                   )),
                 ],
@@ -155,18 +190,18 @@ class _DesktopBodyState extends State<DesktopBody> {
 
               // Personal details section **************************************************************
               Container(
-                margin: EdgeInsets.all(30),
+                margin: const EdgeInsets.all(30),
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 232, 232, 232),
+                    color: const Color.fromARGB(255, 232, 232, 232),
                     borderRadius: BorderRadius.circular(15)),
                 width: currentWidth / 1.2,
                 child: Row(children: [
                   const SizedBox(width: 50),
                   Center(
                     child: Container(
-                      margin: EdgeInsets.all(15),
+                      margin: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 255, 255, 255),
+                          color: const Color.fromARGB(255, 255, 255, 255),
                           borderRadius: BorderRadius.circular(10)),
                       child: Padding(
                         padding: const EdgeInsets.all(20),
@@ -194,11 +229,28 @@ class _DesktopBodyState extends State<DesktopBody> {
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text('I am a developer'),
-                      Text("My description"),
-                      Text(
-                          "Digital signature Name mmmmmmmmmmmmmmmmmmmmmmmmmmmm")
+                    children: [
+                      SizedBox(
+                        width: currentWidth / 2.2,
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 10.0),
+                          child: Text(
+                            // 'I am a Software Engineer from University of Bedfordshire.\n And I can develop software as per customer\'s requirement.'),
+                            'I am still a student, studying at college. Had my own projects, coded in several languages like Java, Python, C# .NET and Flutter. Apart from coding, I enjoy reading a learning new thing and understanding the working principle of different things or a nice evening out with friends.',
+                            maxLines: 4,
+                            textScaleFactor: 1.2,
+                            textWidthBasis: TextWidthBasis.parent,
+                          ),
+                        ),
+                      ),
+                      // Text("My description"),
+                      const Text(
+                        "Sudip Raj Adhikari",
+                        style: TextStyle(
+                          fontFamily: 'Signature',
+                          fontSize: 30,
+                        ),
+                      )
                     ],
                   )
                 ]),
@@ -208,7 +260,7 @@ class _DesktopBodyState extends State<DesktopBody> {
               Padding(
                 key: service_page,
                 padding: const EdgeInsets.symmetric(vertical: 12),
-                child: Text(
+                child: const Text(
                   'Services',
                   style: TextStyle(fontSize: 35, fontWeight: FontWeight.w600),
                 ),
@@ -217,7 +269,7 @@ class _DesktopBodyState extends State<DesktopBody> {
                 child: Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Text(
-                    'Obviously I\'m a Web Designer. Experienced with all stages of the development cycle for dynamic web projects.',
+                    'As Software Engineer and having experience in multiple Programming Languages. I provide following services.',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
@@ -227,7 +279,8 @@ class _DesktopBodyState extends State<DesktopBody> {
               ),
 
               // list of services offered **********************************************************************************
-              // Text(currentWidth.toString()), //current width at 100% zoom level 1536
+              // Text(currentWidth
+              //     .toString()), //current width at 100% zoom level 1536
               SizedBox(
                 width: currentWidth / 1.46,
                 // color: Colors.yellowAccent,
@@ -242,7 +295,7 @@ class _DesktopBodyState extends State<DesktopBody> {
                   },
                   separatorBuilder: (context, index) {
                     return SizedBox(
-                      width: 50,
+                      width: currentWidth / 50,
                     );
                   },
                   itemCount: services.length,
@@ -252,7 +305,8 @@ class _DesktopBodyState extends State<DesktopBody> {
               //about me and skill section ***********************************************************************************
               Padding(
                 key: skill_page,
-                padding: EdgeInsets.symmetric(horizontal: 120, vertical: 70),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 120, vertical: 70),
                 child: Row(
                   children: [
                     Expanded(
@@ -271,15 +325,18 @@ class _DesktopBodyState extends State<DesktopBody> {
                           const Padding(
                             padding: EdgeInsets.symmetric(vertical: 16.0),
                             child: Text(
-                              'I am always ready for new challenges and have a good level of commitment for my s. I am always ready for new challenges and have a good level of commitment for my s.',
-                              style: TextStyle(fontSize: 16),
+                              'I am always ready for new challenges and have a good level of commitment for my services being experienced with all stages of the development cycle for dynamic projects',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                              textAlign: TextAlign.justify,
                             ),
                           ),
                           SizedBox(
                             height: 150,
                             child: ListView.builder(
                                 itemBuilder: (context, index) =>
-                                    BulletList(text: aboutMe[1]),
+                                    BulletList(text: aboutMe[index]),
                                 itemCount: aboutMe.length),
                           )
                         ],
@@ -293,8 +350,8 @@ class _DesktopBodyState extends State<DesktopBody> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 25),
+                        const Padding(
+                          padding: EdgeInsets.only(bottom: 25),
                           child: Text(
                             'Skills',
                             style: TextStyle(
@@ -302,19 +359,36 @@ class _DesktopBodyState extends State<DesktopBody> {
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 25),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 25),
                           child: Text(
-                            'Obviously I\'m a Web Designer. Experienced with all stages of the development cycle for dynamic web projects.',
+                            'I have develop various types of projects in different languages. \nHere are a few technologies I’ve been working with recently:',
                             style: TextStyle(fontSize: 16),
                           ),
                         ),
-                        Text('Skills'),
-                        Text('Skills'),
-                        Text('Skills'),
-                        Text('Skills'),
-                        Text('Skills'),
-                        Text('Skills'),
+                        SizedBox(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Animated_skill_icons(
+                                controller: _controller,
+                                imagePath: skill_display[0],
+                              ),
+                              Animated_skill_icons(
+                                controller: _controller,
+                                imagePath: skill_display[1],
+                              ),
+                              Animated_skill_icons(
+                                controller: _controller,
+                                imagePath: skill_display[2],
+                              ),
+                              Animated_skill_icons(
+                                controller: _controller,
+                                imagePath: skill_display[3],
+                              ),
+                            ],
+                          ),
+                        )
                       ],
                     ))
                   ],
@@ -325,16 +399,16 @@ class _DesktopBodyState extends State<DesktopBody> {
               Padding(
                 key: project_page,
                 padding: const EdgeInsets.all(12.0),
-                child: Text(
+                child: const Text(
                   "My Services",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
                   textAlign: TextAlign.center,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
+              const Padding(
+                padding: EdgeInsets.all(10.0),
                 child: Text(
-                  'Obviously I\'m a Web Designer. Experienced with all stages of the development cycle for dynamic web projects.',
+                  'Here are some of my choosen Projects that, I have developed ',
                   style: TextStyle(fontSize: 16),
                 ),
               ),
@@ -442,18 +516,6 @@ class _DesktopBodyState extends State<DesktopBody> {
                         ],
                       ),
                     ),
-                    // Expanded(
-                    //   child: Column(
-                    //     children: const [
-                    //       // Text(
-                    //       //   'Message Me',
-                    //       //   style:
-                    //       //       TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
-                    //       //   textAlign: TextAlign.center,
-                    //       // ),
-                    //     ],
-                    //   ),
-                    // ),
                   ],
                 ),
               ),
@@ -479,7 +541,7 @@ class _DesktopBodyState extends State<DesktopBody> {
                 ),
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text('Contacts :     ',
+                  const Text('Contacts :     ',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -488,17 +550,17 @@ class _DesktopBodyState extends State<DesktopBody> {
                       onPressed: () {
                         openWebPage(fbLaunch);
                       },
-                      icon: Icon(FontAwesomeIcons.facebook)),
+                      icon: const Icon(FontAwesomeIcons.facebook)),
                   IconButton(
                       onPressed: () {
                         openWebPage(instaLaunch);
                       },
-                      icon: Icon(FontAwesomeIcons.instagram)),
+                      icon: const Icon(FontAwesomeIcons.instagram)),
                   IconButton(
                       onPressed: () {
                         openWebPage(linkedin);
                       },
-                      icon: Icon(FontAwesomeIcons.linkedin)),
+                      icon: const Icon(FontAwesomeIcons.linkedin)),
                 ]),
               )
             ],
@@ -514,7 +576,7 @@ class _DesktopBodyState extends State<DesktopBody> {
         activeIndex: activeIndex,
         count: project_images.length,
         onDotClicked: animateToIndex,
-        effect: SlideEffect(
+        effect: const SlideEffect(
           activeDotColor: Color.fromARGB(255, 96, 162, 255),
         ),
       );
@@ -525,7 +587,7 @@ class _DesktopBodyState extends State<DesktopBody> {
     if (await canLaunchUrl(url)) {
       launchUrl(url);
     } else {
-      print('error launching url');
+      // print('error launching url');
     }
   }
 }

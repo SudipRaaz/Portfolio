@@ -18,42 +18,47 @@ class CardTile extends StatelessWidget {
     return Card(
       shape: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide(color: Colors.white)),
+          borderSide: const BorderSide(color: Colors.white)),
       elevation: 12,
       child: Padding(
-        padding: const EdgeInsets.all(35),
+        padding: EdgeInsets.all(currentWidth / 37),
         child: SizedBox(
           width: currentWidth / 6.6,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Icon(Icons.itemMap['title'])
-              Icon(
-                IconData(int.parse(this.icondata!),
-                    fontFamily: 'MaterialIcons'),
-                size: 62,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    IconData(int.parse(icondata!), fontFamily: 'MaterialIcons'),
+                    size: 62,
+                    color: Colors.blue,
+                  ),
+                ],
               ),
-              Spacer(
+              const Spacer(
                 flex: 1,
               ),
               Text(
-                '${this.heading}',
-                style: TextStyle(
+                '$heading',
+                style: const TextStyle(
                   fontSize: 24,
                 ),
                 textAlign: TextAlign.left,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
-              Spacer(
+              const Spacer(
                 flex: 1,
               ),
               Text(
-                '${this.description}',
-                maxLines: 5,
+                '$description',
+                maxLines: 7,
                 overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.justify,
               ),
-              Spacer(
+              const Spacer(
                 flex: 3,
               ),
             ],

@@ -14,7 +14,7 @@ class InfoTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0, left: 100),
-      child: Container(
+      child: SizedBox(
         child: ListTile(
           leading: Icon(
             iconName,
@@ -23,8 +23,8 @@ class InfoTile extends StatelessWidget {
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(' ${heading} '),
-              Text(' ${subHeading} '),
+              Text(' $heading '),
+              Text(' $subHeading '),
             ],
           ),
         ),

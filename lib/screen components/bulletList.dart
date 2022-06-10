@@ -7,11 +7,11 @@ class BulletList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text('* ',
+        const Text('    * ',
             style: TextStyle(
               fontSize: 20,
             )),
-        Text(this.text)
+        Text(text)
       ],
     );
   }

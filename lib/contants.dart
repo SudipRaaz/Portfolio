@@ -2,30 +2,28 @@ final services = [
   {
     'title': 'Mobile Applications',
     'description':
-        'I can develop mobile application to fill your bussiness need and simplefy your problems with a tap on your phone.',
-    'iconcode': '0xe178'
+        'I will develop mobile application to fill your bussiness need and simplefy your problems with a tap on your phone.',
+    'iconcode': '0xf286'
   },
   {
-    'title': 'Web Site Services',
+    'title': 'WebSite Services',
     'description':
-        'I can develop a custom website for your personal or business requirement to reach to people all across the globe.',
-    'iconcode': '0xe178'
+        'I will develop a custom website for your personal as well as business requirement to reach to people all across the globe.',
+    'iconcode': '0xe6dd'
   },
   {
-    'title': 'Heading 3',
+    'title': 'Window Application',
     'description':
-        'description heading description heading description heading description heading description heading description heading description heading ',
-    'iconcode': '0xe178'
+        'I will develop a custom window application as per your perosonal requirements. ',
+    'iconcode': '0xefb2'
   },
 ];
 
 final aboutMe = [
-  'listing',
-  'listing 2',
-  'listing 3',
-  'listing 3',
-  'listing 3',
-  'listing 3',
+  'Open minded and positive attitude.',
+  'Self motivated and dedicated.',
+  'Logical thinking',
+  'Learning from failures.',
 ];
 
 final project_images = [
@@ -35,4 +33,9 @@ final project_images = [
   'assets/mobile_app.jpg',
 ];
 
-final data = 0;
+final skill_display = [
+  'skills/python.png',
+  'skills/java.png',
+  'skills/c.jpg',
+  'skills/flutter.jpg',
+];
