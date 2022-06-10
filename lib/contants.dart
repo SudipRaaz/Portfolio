@@ -34,8 +34,8 @@ final project_images = [
 ];
 
 final skill_display = [
-  'skills/python.png',
-  'skills/java.png',
-  'skills/c.jpg',
-  'skills/flutter.jpg',
+  'python.png',
+  'java.png',
+  'c.jpg',
+  'flutter.jpg',
 ];
