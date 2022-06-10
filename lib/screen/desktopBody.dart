@@ -178,7 +178,6 @@ class _DesktopBodyState extends State<DesktopBody>
                   Expanded(
                       child: Container(
                     height: 745,
-                    // width: 500,
                     decoration: const BoxDecoration(
                         color: Color.fromRGBO(68, 138, 255, 1),
                         image: DecorationImage(
