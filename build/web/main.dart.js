@@ -60735,7 +60735,7 @@ $.a9n=function(){var s=t.N
 return A.a([A.aL(["title","Mobile Applications","description","I will develop mobile application to fill your bussiness need and simplefy your problems with a tap on your phone.","iconcode","0xf286"],s,s),A.aL(["title","WebSite Services","description","I will develop a custom website for your personal as well as business requirement to reach to people all across the globe.","iconcode","0xe6dd"],s,s),A.aL(["title","Window Application","description","I will develop a custom window application as per your perosonal requirements. ","iconcode","0xefb2"],s,s)],A.P("p<ah<o,o>>"))}()
 $.aqA=A.a(["Open minded and positive attitude.","Self motivated and dedicated.","Logical thinking","Learning from failures."],t.s)
 $.as7=A.a(["assets/customer_book.jpg","assets/python_project.jpg","assets/c_project.jpg","assets/mobile_app.jpg"],t.s)
-$.a6N=A.a(["skills/python.png","skills/java.png","skills/c.jpg","skills/flutter.jpg"],t.s)
+$.a6N=A.a(["python.png","java.png","c.jpg","flutter.jpg"],t.s)
 $.am1=A.y(t.S,A.P("atn"))
 $.abV=null
 $.abT=null
