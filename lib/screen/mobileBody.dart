@@ -191,13 +191,13 @@ class _MobilePageState extends State<MobilePage> {
                 // constraints: BoxConstraints(maxHeight: 275, maxWidth: 200),
                 // width: 200,
                 // color: Colors.yellowAccent,
-                height: 275 * 3.48,
+                height: 275 * 3.7,
                 child: ListView.separated(
                   scrollDirection: Axis.vertical,
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 100.0, vertical: 12),
+                          horizontal: 60.0, vertical: 12),
                       child: CardTile(
                           icondata: services[index]['iconcode'],
                           heading: services[index]['title'],
@@ -381,34 +381,28 @@ class _MobilePageState extends State<MobilePage> {
               Padding(
                 key: contact_page,
                 padding: const EdgeInsets.symmetric(vertical: 30),
-                child: Row(
+                child: Column(
                   children: [
-                    Expanded(
-                      child: Column(
-                        children: [
-                          const Text(
-                            'Contact Me',
-                            style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.w600),
-                            textAlign: TextAlign.center,
-                          ),
-                          InfoTile(
-                            iconName: Icons.person,
-                            heading: 'Name',
-                            subHeading: 'Sudip Raj adhikari',
-                          ),
-                          InfoTile(
-                            iconName: Icons.location_city_rounded,
-                            heading: 'Address',
-                            subHeading: 'Kathmandu, Nepal',
-                          ),
-                          InfoTile(
-                            iconName: Icons.email_rounded,
-                            heading: 'Email',
-                            subHeading: 'happysudip440@gmail.com',
-                          ),
-                        ],
-                      ),
+                    const Text(
+                      'Contact Me',
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+                      textAlign: TextAlign.center,
+                    ),
+                    InfoTile(
+                      iconName: Icons.person,
+                      heading: 'Name',
+                      subHeading: 'Sudip Raj adhikari',
+                    ),
+                    InfoTile(
+                      iconName: Icons.location_city_rounded,
+                      heading: 'Address',
+                      subHeading: 'Kathmandu, Nepal',
+                    ),
+                    InfoTile(
+                      iconName: Icons.email_rounded,
+                      heading: 'Email',
+                      subHeading: 'happysudip440@gmail.com',
                     ),
                   ],
                 ),
