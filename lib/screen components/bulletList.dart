@@ -11,7 +11,10 @@ class BulletList extends StatelessWidget {
             style: TextStyle(
               fontSize: 20,
             )),
-        Text(text)
+        Text(
+          text,
+          style: TextStyle(fontSize: 16),
+        )
       ],
     );
   }

@@ -346,34 +346,6 @@ class _MobilePageState extends State<MobilePage> {
                         ),
                       ],
                     ),
-                    Positioned(
-                      left: 20,
-                      top: 145,
-                      child: ElevatedButton.icon(
-                          onPressed: () {
-                            sliderController.previousPage(
-                                duration: const Duration(
-                                  milliseconds: 500,
-                                ),
-                                curve: Curves.linear);
-                          },
-                          icon: const Icon(Icons.arrow_left),
-                          label: const Text('previous')),
-                    ),
-                    Positioned(
-                      right: 20,
-                      top: 145,
-                      child: ElevatedButton.icon(
-                          onPressed: () {
-                            sliderController.nextPage(
-                                duration: const Duration(
-                                  milliseconds: 500,
-                                ),
-                                curve: Curves.linear);
-                          },
-                          icon: const Icon(Icons.arrow_right),
-                          label: const Text('Next')),
-                    ),
                   ],
                 ),
               ),
