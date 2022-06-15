@@ -361,30 +361,42 @@ class _DesktopBodyState extends State<DesktopBody>
                         const Padding(
                           padding: EdgeInsets.symmetric(vertical: 25),
                           child: Text(
-                            'I have develop various types of projects in different languages. \nHere are a few technologies I’ve been working with recently:',
+                            'I have develop various types of projects in different languages. \nHere are few technologies I’ve been working with recently:',
                             style: TextStyle(fontSize: 16),
                           ),
                         ),
                         SizedBox(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Animated_skill_icons(
-                                controller: _controller,
-                                imagePath: skill_display[0],
-                              ),
-                              Animated_skill_icons(
-                                controller: _controller,
-                                imagePath: skill_display[1],
-                              ),
-                              Animated_skill_icons(
-                                controller: _controller,
-                                imagePath: skill_display[2],
-                              ),
-                              Animated_skill_icons(
-                                controller: _controller,
-                                imagePath: skill_display[3],
-                              ),
+                            children: const [
+                              Text('Flutter',
+                                  style: TextStyle(
+                                      color: Colors.blue, fontSize: 18)),
+                              Text('Python',
+                                  style: TextStyle(
+                                      color: Colors.blue, fontSize: 18)),
+                              Text('Java',
+                                  style: TextStyle(
+                                      color: Colors.blue, fontSize: 18)),
+                              Text('C#',
+                                  style: TextStyle(
+                                      color: Colors.blue, fontSize: 18)),
+                              // Animated_skill_icons(
+                              //   controller: _controller,
+                              //   imagePath: skill_display[0],
+                              // ),
+                              // Animated_skill_icons(
+                              //   controller: _controller,
+                              //   imagePath: skill_display[1],
+                              // ),
+                              // Animated_skill_icons(
+                              //   controller: _controller,
+                              //   imagePath: skill_display[2],
+                              // ),
+                              // Animated_skill_icons(
+                              //   controller: _controller,
+                              //   imagePath: skill_display[3],
+                              // ),
                             ],
                           ),
                         )

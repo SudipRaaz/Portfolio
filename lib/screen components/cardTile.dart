@@ -24,6 +24,7 @@ class CardTile extends StatelessWidget {
         padding: EdgeInsets.all(currentWidth / 37),
         child: SizedBox(
           width: currentWidth / 6.6,
+          height: 275,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
