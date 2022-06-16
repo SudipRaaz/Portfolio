@@ -55711,7 +55711,7 @@ A.Vh.prototype={}
 A.t7.prototype={}
 A.Va.prototype={}
 A.Ct.prototype={
-L(a,b){return new A.tM(B.DK,"Flutter Demo",A.ad_(null,B.b1),!1,null)}}
+L(a,b){return new A.tM(B.DK,"My Portfolio",A.ad_(null,B.b1),!1,null)}}
 A.Eg.prototype={
 L(a,b){return new A.C0(new A.Wx(this),null)}}
 A.Wx.prototype={
