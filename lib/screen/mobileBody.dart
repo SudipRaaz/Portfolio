@@ -193,7 +193,9 @@ class _MobilePageState extends State<MobilePage> {
                 // color: Colors.yellowAccent,
                 height: 275 * 3.7,
                 child: ListView.separated(
-                  scrollDirection: Axis.vertical,
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  // scrollDirection: Axis.vertical,
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(
@@ -242,6 +244,8 @@ class _MobilePageState extends State<MobilePage> {
                     SizedBox(
                       height: 150,
                       child: ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
                           itemBuilder: (context, index) =>
                               BulletList(text: aboutMe[index]),
                           itemCount: aboutMe.length),
